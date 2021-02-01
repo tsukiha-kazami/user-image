@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .title {
+            padding-top: 10px;
+            font-size: 30px;
+        }
+
+        .el-tag {
+            margin: 5px 5px 5px 5px;
+        }
+
+        .btn-div {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid" id="app">
+    <p class="title">用户相关</p>
+    <div class="row">
+        <div class="col-3">
+            <h6>性别标签</h6>
+            <el-tag
+                    v-for="item in sexTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>渠道标签</h6>
+            <el-tag
+                    v-for="item in channelTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>热度标签</h6>
+            <el-tag
+                    v-for="item in hotTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>关注标签</h6>
+            <el-tag
+                    v-for="item in subTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3" style="margin-top: 10px;">
+            <h6>注册时间</h6>
+            <el-tag
+                    v-for="item in regTimeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3" style="margin-top: 10px;">
+            <h6>下单时间</h6>
+            <el-tag
+                    v-for="item in orderTimeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <p class="title">营销提醒</p>
+        </div>
+        <div class="col-6">
+            <p class="title">消费等级</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <h6>首单免费失效</h6>
+            <el-tag
+                    v-for="item in freeTimeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>优惠券失效</h6>
+            <el-tag
+                    v-for="item in couponInvalidTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+
+        <div class="col-3">
+            <h6>充值金额</h6>
+            <el-tag
+                    v-for="item in chargeMoneyTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>下单金额</h6>
+            <el-tag
+                    v-for="item in orderMoneyTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+    </div>
+
+    <p class="title">商品喜好</p>
+    <div class="row">
+        <div class="col-3">
+            <h6>咖啡</h6>
+            <el-tag
+                    v-for="item in coffeeLikeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>果汁</h6>
+            <el-tag
+                    v-for="item in juiceLikeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>小食</h6>
+            <el-tag
+                    v-for="item in snacksLikeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>周边</h6>
+            <el-tag
+                    v-for="item in aroundTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+    </div>
+
+    <p class="title">效率提升</p>
+    <div class="row">
+        <div class="col-3">
+            <h6>超时</h6>
+            <el-tag
+                    v-for="item in overTimeTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+        <div class="col-3">
+            <h6>反馈</h6>
+            <el-tag
+                    v-for="item in feedbackTags"
+                    :key="item.label"
+                    :effect="item.effect"
+                    @click="addTag(item)"
+            >{{ item.label }}
+            </el-tag>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center;margin-bottom: 10px;" class="btn-div" d>
+        <button class="btn-info btn">生成</button>
+        <button class="btn-primary btn" style="margin-left: 5px;">重置</button>
+    </div>
+
+
+</div>
+<script src="/js/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="/js/axios.min.js"></script>
+<script>
+
+    function show(obj) {
+
+    }
+
+    var app;
+    app = new Vue({
+        el: '#app',
+        data: {
+            sexTags: [
+                {effect: 'light', label: "男性"},
+                {effect: 'light', label: "女性"},
+                {effect: 'light', label: "未知"},
+            ],
+            channelTags: [
+                {effect: 'light', label: "IOS"},
+                {effect: 'light', label: "Android"},
+                {effect: 'light', label: "微信小程序"},
+                {effect: 'light', label: "微信公众号"},
+                {effect: 'light', label: "H5"},
+            ],
+            hotTags: [
+                {effect: 'light', label: "注册"},
+                {effect: 'light', label: "待完善"},
+                {effect: 'light', label: "已领券"},
+                {effect: 'light', label: "已下单"},
+                {effect: 'light', label: "已复购"},
+            ],
+            subTags: [
+                {effect: 'light', label: "已关注"},
+                {effect: 'light', label: "未关注"},
+            ],
+            regTimeTags: [
+                {effect: 'light', label: "近一天"},
+                {effect: 'light', label: "近二天"},
+                {effect: 'light', label: "近三天"},
+                {effect: 'light', label: "近四天"},
+                {effect: 'light', label: "近五天"},
+                {effect: 'light', label: "近六天"},
+                {effect: 'light', label: "近七天"},
+            ],
+
+            orderTimeTags: [
+                {effect: 'light', label: "近一天"},
+                {effect: 'light', label: "近二天"},
+                {effect: 'light', label: "近三天"},
+                {effect: 'light', label: "近四天"},
+                {effect: 'light', label: "近五天"},
+                {effect: 'light', label: "近六天"},
+                {effect: 'light', label: "近七天"},
+            ],
+
+            freeTimeTags: [
+                {effect: 'light', label: "近一天"},
+                {effect: 'light', label: "近二天"},
+                {effect: 'light', label: "近三天"},
+                {effect: 'light', label: "近四天"},
+                {effect: 'light', label: "近五天"},
+                {effect: 'light', label: "近六天"},
+                {effect: 'light', label: "近七天"},
+            ],
+            couponInvalidTags: [
+                {effect: 'light', label: "近一天"},
+                {effect: 'light', label: "近三天"},
+                {effect: 'light', label: "近五天"},
+                {effect: 'light', label: "近七天"},
+            ],
+            chargeMoneyTags: [
+                {effect: 'light', label: "10~50"},
+                {effect: 'light', label: "50~100"},
+                {effect: 'light', label: "100~200"},
+                {effect: 'light', label: "200~500"},
+                {effect: 'light', label: "500~1000"},
+            ],
+            orderMoneyTags: [
+                {effect: 'light', label: "10~50"},
+                {effect: 'light', label: "50~100"},
+                {effect: 'light', label: "100~200"},
+                {effect: 'light', label: "200~500"},
+                {effect: 'light', label: "500~1000"},
+            ],
+            coffeeLikeTags: [
+                {effect: 'light', label: "卡布奇诺"},
+                {effect: 'light', label: "美式"},
+                {effect: 'light', label: "摩卡"},
+                {effect: 'light', label: "拿铁"},
+            ],
+            juiceLikeTags: [
+                {effect: 'light', label: "橙汁"},
+                {effect: 'light', label: "石榴汁"},
+                {effect: 'light', label: "西瓜汁"},
+                {effect: 'light', label: "芒果"},
+                {effect: 'light', label: "猕猴桃"},
+            ],
+            snacksLikeTags: [
+                {effect: 'light', label: "沙琪玛"},
+                {effect: 'light', label: "面包干"},
+                {effect: 'light', label: "酸奶"},
+                {effect: 'light', label: "火腿"},
+                {effect: 'light', label: "汉堡"},
+            ],
+            aroundTags: [
+                {effect: 'light', label: "咖啡杯"},
+                {effect: 'light', label: "咖啡机"},
+                {effect: 'light', label: "果汁机"},
+                {effect: 'light', label: "咖啡物语"},
+                {effect: 'light', label: "钥匙扣"},
+            ],
+            overTimeTags: [
+                {effect: 'light', label: "15分钟"},
+                {effect: 'light', label: "30分钟"},
+                {effect: 'light', label: "45分钟"},
+                {effect: 'light', label: "1小时以上"},
+            ],
+            feedbackTags: [
+                {effect: 'light', label: "破损、撒漏"},
+                {effect: 'light', label: "缺货"},
+                {effect: 'light', label: "错货"},
+                {effect: 'light', label: "投诉"},
+            ],
+
+            selectedTags: [],
+        },
+        methods: {
+            addTag: function (event) {
+                event.effect = (event.effect == 'light' ? 'dark' : "light")
+                console.log(event.label)
+            }
+        },
+        created: function () {
+
+
+        }
+
+
+    });
+</script>
+<script>
+
+</script>
+</body>
+</html>

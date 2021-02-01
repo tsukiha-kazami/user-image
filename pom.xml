@@ -10,7 +10,8 @@
   <modules>
     <module>spark-framework</module>
     <module>kkb-flink-framework</module>
-    <module>mall</module>
+    <module>kkb-mall</module>
+    <module>spark-es-tag</module>
   </modules>
   <packaging>pom</packaging>
 
