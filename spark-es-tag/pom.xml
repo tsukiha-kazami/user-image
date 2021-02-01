@@ -8,7 +8,7 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kkb.bigdata</groupId>
+    <groupId>learn.only.kazami</groupId>
     <artifactId>spark-es-tag</artifactId>
     <version>1.0</version>
     <name>spark-es-tag</name>

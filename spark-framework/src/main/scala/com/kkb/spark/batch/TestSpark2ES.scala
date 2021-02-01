@@ -17,8 +17,8 @@ class TestSpark2ES {
       (3, 2, "36", "69")
     )).toDF("id", "label", "col1", "col2")
 
-    EsSparkSQL.saveToEs()
-    dataFrame.saveToEs("_index/_type",Map("es.mapping.id" -> "id"))
+//    EsSparkSQL.saveToEs()
+//    dataFrame.saveToEs("_index/_type",Map("es.mapping.id" -> "id"))
   }
 
   def getSparkSession(): SparkSession = {

@@ -2,7 +2,6 @@ package com.kkb.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.kkb.mall.bean.*;
 import com.kkb.mall.common.mock.db.util.ParamUtil;
 import com.kkb.mall.common.mock.db.util.RandomNum;
 import com.kkb.mall.constant.GmallConstant;
